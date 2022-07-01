@@ -1,8 +1,12 @@
 import React from 'react'
+import logo from "../images/cinema.png";
 
 const HomePage = () => {
   return (
-    <div><h1>HOMEPAGE</h1></div>
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <p>MoviePop!</p>
+    </header>
   )
 }
 
