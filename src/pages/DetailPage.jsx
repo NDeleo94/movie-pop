@@ -1,32 +1,35 @@
 import React from "react";
-import image from "../images/unavailable.jpeg";
+import styles from "../pages styles/DetailPage.module.css";
+import movie from "../data.json";
 
 const DetailPage = () => {
   return (
-    <div>
-      <div>
-        <img src={image} alt="poster" />
-        {/* <div>
+    <div className={styles.detailContainer}>
+      <img
+        className={`${styles.col} ${styles.movieImage} ${styles.objetfit}`}
+        src={movie[0].show.image.medium}
+        alt="poster"
+      />
+      {/* <div>
           <button>Favorito</button>
           Rating
         </div> */}
-        <div>
-          <h1>Pelicula</h1>
-          <p>
-            <strong>Lenguaje: </strong>
-            Ingles
-          </p>
-          <p>
-            <strong>Géneros: </strong>
-            Miedo
-          </p>
-          <p>
-            <strong>Fecha de Estreno: </strong>
-            1010/10/10
-          </p>
-          <h1>Sinopsis </h1>
-          <p>Resumen</p>
-        </div>
+      <div className={`${styles.col} ${styles.movieDetails}`}>
+        <h1>{movie[0].show.name}</h1>
+        <p>
+          <strong>Lenguaje: </strong>
+          {movie[0].show.language ? movie[0].show.language : "?"}
+        </p>
+        <p>
+          <strong>Géneros: </strong>
+          {movie[0].show.genres.length ? movie[0].show.genres.join(", ") : "?"}
+        </p>
+        <p>
+          <strong>Fecha de Estreno: </strong>
+          {movie[0].show.premiered}
+        </p>
+        <h1>Sinopsis </h1>
+        <p>{movie[0].show.summary}</p>
       </div>
     </div>
   );
