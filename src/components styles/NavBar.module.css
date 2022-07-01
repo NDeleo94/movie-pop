@@ -1,0 +1,23 @@
+.nav {
+  height: 50px;
+  padding: 5px;
+}
+
+.navList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  float: right;
+  margin: 10px;
+}
+
+.colorA{
+    color: white;
+}
+
+.colorB{
+    color:  #c48900;
+}
