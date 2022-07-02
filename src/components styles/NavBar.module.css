@@ -1,6 +1,7 @@
 .nav {
   height: 50px;
   padding: 5px;
+  margin-bottom: 10px;
 }
 
 .navList {
@@ -20,4 +21,8 @@ li {
 
 .colorB{
     color:  #c48900;
+}
+
+.hidden{
+  display: none;
 }
