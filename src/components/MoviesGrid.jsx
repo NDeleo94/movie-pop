@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MovieGridItem from "./MovieGridItem";
 import styles from "../components styles/MoviesGrid.module.css";
 import axios from "axios";
+import Loading from "./Loading";
 
 const MoviesGrid = ({ search }) => {
   const [movies, setMovies] = useState([]);
@@ -19,7 +20,7 @@ const MoviesGrid = ({ search }) => {
   }, [search]);
 
   if (isLoading) {
-    return <div>Cargando...</div>;
+    return <Loading />;
   }
 
   return (

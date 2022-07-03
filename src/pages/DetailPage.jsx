@@ -4,6 +4,7 @@ import { cleanTags } from "../utils/cleanTags";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { getPoster } from "../utils/getPoster";
+import Loading from "../components/Loading";
 
 const DetailPage = () => {
   const { idPelicula } = useParams();
@@ -22,7 +23,7 @@ const DetailPage = () => {
   }, [idPelicula]);
 
   if (isLoading) {
-    return <div>Cargando...</div>;
+    return <Loading />;
   }
 
   return (
