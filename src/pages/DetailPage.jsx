@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../pages styles/DetailPage.module.css";
 import movie from "../data.json";
+import { cleanTags } from "../utils/cleanTags";
 
 const DetailPage = () => {
   return (
@@ -29,7 +30,7 @@ const DetailPage = () => {
           {movie[0].show.premiered}
         </p>
         <h1>Sinopsis </h1>
-        <p>{movie[0].show.summary}</p>
+        <p>{cleanTags(movie[0].show.summary)}</p>
       </div>
     </div>
   );
