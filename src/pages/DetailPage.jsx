@@ -1,36 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../pages styles/DetailPage.module.css";
-import movie from "../data.json";
 import { cleanTags } from "../utils/cleanTags";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const DetailPage = () => {
+  const { idPelicula } = useParams();
+
+  const [pelicula, setPelicula] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get("http://api.tvmaze.com/shows/" + idPelicula).then((data) => {
+      setPelicula(data.data);
+      setIsLoading(false);
+    });
+  }, [idPelicula]);
+
+  if (isLoading) {
+    return <div>Cargando...</div>;
+  }
+
   return (
     <div className={styles.detailContainer}>
       <img
         className={`${styles.col} ${styles.movieImage} ${styles.objetfit}`}
-        src={movie[0].show.image.medium}
-        alt="poster"
+        src={pelicula.image.medium}
+        alt={"poster" + pelicula.name}
       />
       {/* <div>
           <button>Favorito</button>
           Rating
         </div> */}
       <div className={`${styles.col} ${styles.movieDetails}`}>
-        <h1>{movie[0].show.name}</h1>
+        <h1>{pelicula.name}</h1>
         <p>
           <strong>Lenguaje: </strong>
-          {movie[0].show.language ? movie[0].show.language : "?"}
+          {pelicula.language ? pelicula.language : "?"}
         </p>
         <p>
           <strong>Géneros: </strong>
-          {movie[0].show.genres.length ? movie[0].show.genres.join(", ") : "?"}
+          {pelicula.genres.length ? pelicula.genres.join(", ") : "?"}
         </p>
         <p>
           <strong>Fecha de Estreno: </strong>
-          {movie[0].show.premiered}
+          {pelicula.premiered}
         </p>
         <h1>Sinopsis </h1>
-        <p>{cleanTags(movie[0].show.summary)}</p>
+        <p>{cleanTags(pelicula.summary)}</p>
       </div>
     </div>
   );
