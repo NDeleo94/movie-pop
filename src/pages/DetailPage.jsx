@@ -3,6 +3,7 @@ import styles from "../pages styles/DetailPage.module.css";
 import { cleanTags } from "../utils/cleanTags";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { getPoster } from "../utils/getPoster";
 
 const DetailPage = () => {
   const { idPelicula } = useParams();
@@ -13,8 +14,8 @@ const DetailPage = () => {
   useEffect(() => {
     axios
       .get("http://api.tvmaze.com/shows/" + idPelicula)
-      .then((data) => {
-        setPelicula(data.data);
+      .then((peli) => {
+        setPelicula(peli.data);
         setIsLoading(false);
       })
       .catch((error) => alert(error));
@@ -28,7 +29,7 @@ const DetailPage = () => {
     <div className={styles.detailContainer}>
       <img
         className={`${styles.col} ${styles.movieImage} ${styles.objetfit}`}
-        src={pelicula.image.medium}
+        src={getPoster(pelicula.image)}
         alt={"poster" + pelicula.name}
       />
       {/* <div>

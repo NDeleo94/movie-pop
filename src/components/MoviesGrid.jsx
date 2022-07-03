@@ -5,13 +5,22 @@ import axios from "axios";
 
 const MoviesGrid = ({ search }) => {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const searchURL = search ? search : "star wars";
     axios
       .get("http://api.tvmaze.com/search/shows?q=" + searchURL)
-      .then((pelis) => setMovies(pelis.data));
+      .then((pelis) => {
+        setMovies(pelis.data);
+        setIsLoading(false);
+      })
+      .catch((error) => alert(error));
   }, [search]);
+
+  if (isLoading) {
+    return <div>Cargando...</div>;
+  }
 
   return (
     <ul className={styles.moviesGrid}>
