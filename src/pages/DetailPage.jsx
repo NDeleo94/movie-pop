@@ -11,10 +11,13 @@ const DetailPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://api.tvmaze.com/shows/" + idPelicula).then((data) => {
-      setPelicula(data.data);
-      setIsLoading(false);
-    });
+    axios
+      .get("http://api.tvmaze.com/shows/" + idPelicula)
+      .then((data) => {
+        setPelicula(data.data);
+        setIsLoading(false);
+      })
+      .catch((error) => alert(error));
   }, [idPelicula]);
 
   if (isLoading) {
