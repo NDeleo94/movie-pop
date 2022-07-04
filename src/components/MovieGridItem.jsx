@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../components styles/MovieGridItem.module.css";
-import movies from "../data.json";
 import { getPoster } from "../utils/getPoster";
 
 const MovieGridItem = ({ movie }) => {

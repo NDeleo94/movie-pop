@@ -1,10 +1,18 @@
 import React from "react";
 import GoogleButton from "react-google-button";
+import { useDispatch } from "react-redux";
+import { googleLogin } from "../actions/auth";
 import styles from "../pages styles/LoginPage.module.css";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const handleLoginGoogle = () => {
+    dispatch(googleLogin());
   };
 
   return (
@@ -30,7 +38,7 @@ const LoginPage = () => {
       </form>
       <hr />
       <div className={styles.loginContainer}>
-        <GoogleButton onClick={()=>console.log("Hello Google")}/>
+        <GoogleButton onClick={handleLoginGoogle} />
       </div>
     </div>
   );

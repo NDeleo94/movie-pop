@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { getPoster } from "../utils/getPoster";
 import Loading from "../components/Loading";
-import Rating from "../components/Rating";
-import { getRating } from "../utils/getRating";
+// import Rating from "../components/Rating";
+// import { getRating } from "../utils/getRating";
 
 const DetailPage = () => {
   const { idPelicula } = useParams();
