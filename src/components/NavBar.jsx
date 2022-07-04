@@ -2,6 +2,7 @@ import {
   faArrowLeft,
   faHouseChimney,
   faSearch,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -37,6 +38,12 @@ const NavBar = () => {
           >
             {" "}
             <FontAwesomeIcon icon={faSearch} size={"2x"} />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={"/login"} className={({ isActive }) => estilos(isActive)}>
+            {" "}
+            <FontAwesomeIcon icon={faUser} size={"2x"} />
           </NavLink>
         </li>
         <li>
