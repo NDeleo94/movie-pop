@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { getPoster } from "../utils/getPoster";
 import Loading from "../components/Loading";
+import Rating from "../components/Rating";
+import { getRating } from "../utils/getRating";
 
 const DetailPage = () => {
   const { idPelicula } = useParams();
@@ -32,11 +34,8 @@ const DetailPage = () => {
         className={`${styles.col} ${styles.movieImage} ${styles.objetfit}`}
         src={getPoster(pelicula.image)}
         alt={"poster" + pelicula.name}
-      />
-      {/* <div>
-          <button>Favorito</button>
-          Rating
-        </div> */}
+      ></img>
+      {/* <Rating className={styles.col} stars={getRating(pelicula.rating)} /> */}
       <div className={`${styles.col} ${styles.movieDetails}`}>
         <h1>{pelicula.name}</h1>
         <p>
