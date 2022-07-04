@@ -3,6 +3,7 @@ import MovieGridItem from "./MovieGridItem";
 import styles from "../components styles/MoviesGrid.module.css";
 import axios from "axios";
 import Loading from "./Loading";
+import NoResults from "./NoResults";
 
 const MoviesGrid = ({ search }) => {
   const [movies, setMovies] = useState([]);
@@ -21,6 +22,10 @@ const MoviesGrid = ({ search }) => {
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (movies.length === 0) {
+    return <NoResults text={"No se encontraron resultados"}/>;
   }
 
   return (
