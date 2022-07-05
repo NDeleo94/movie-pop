@@ -9,7 +9,7 @@ export const crearRegistro = (pelicula) => {
 
     const datos = {
       fecha: new Date(),
-      movie: {
+      show: {
         id: pelicula.id,
         name: pelicula.name,
         image: pelicula.image,

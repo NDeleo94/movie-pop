@@ -30,7 +30,7 @@ const DetailPage = () => {
 
   const initialToggle = () => {
     fav.favoritas.forEach((favorita) => {
-      if (favorita.movie.id == idPelicula) {
+      if (favorita.show.id === parseInt(idPelicula)) {
         setIdDoc(favorita.id);
         setToggle(true);
         return;
