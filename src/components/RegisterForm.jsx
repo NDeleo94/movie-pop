@@ -45,7 +45,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <form form className={styles.loginContainer} onSubmit={handleSubmit}>
+      <form className={styles.loginContainer} onSubmit={handleSubmit}>
         <div className={styles.loginBox}>
           <input
             className={styles.loginInput}
