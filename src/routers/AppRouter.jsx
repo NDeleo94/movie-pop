@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import DetailPage from "../pages/DetailPage";
 import FavPage from "../pages/FavPage";
@@ -37,19 +37,20 @@ const AppRouter = () => {
     <Router>
       <NavBar />
       <Routes>
-        <Route end path="*" element={<HomePage />} />
+        <Route end path="/" element={<HomePage />} />
         <Route end path="/login" element={<LoginPage />} />
         <Route end path="/buscar" element={<GridPage />} />
         <Route
           end
           path="/favoritos"
           element={
-            <PrivateRouter>
+              <PrivateRouter>
               <FavPage />
             </PrivateRouter>
           }
         />
         <Route end path="/pelicula/:idPelicula" element={<DetailPage />} />
+        <Route path="*" element={<Navigate to={"/"} replace/>}/>
       </Routes>
     </Router>
   );
