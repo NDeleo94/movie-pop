@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import FavPage from "./pages/FavPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route end path="/" element={<HomePage />} />
             <Route end path="/login" element={<LoginPage />} />
             <Route end path="/buscar" element={<GridPage />} />
+            <Route end path="/favoritos" element={<FavPage />} />
             <Route end path="/pelicula/:idPelicula" element={<DetailPage />} />
           </Routes>
         </Router>

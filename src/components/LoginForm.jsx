@@ -2,9 +2,9 @@ import React from "react";
 import GoogleButton from "react-google-button";
 import { useDispatch } from "react-redux";
 import { googleLogin } from "../actions/auth";
-import styles from "../components styles/Login.module.css";
+import styles from "../components styles/LoginForm.module.css";
 
-const Login = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -14,7 +14,7 @@ const Login = () => {
   const handleLoginGoogle = () => {
     dispatch(googleLogin());
   };
-
+  
   return (
     <>
       <form className={styles.loginContainer} onSubmit={handleSubmit}>
@@ -42,4 +42,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
