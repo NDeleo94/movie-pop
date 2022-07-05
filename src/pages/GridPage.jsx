@@ -8,7 +8,7 @@ import styles from "../pages styles/GridPage.module.css";
 const GridPage = () => {
   const query = useQuery();
   const search = query.get("search");
-  console.log(search);
+  // console.log(search);
 
   const searchDebounced = useDebounce(search, 300);
 
