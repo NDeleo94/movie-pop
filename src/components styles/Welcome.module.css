@@ -1,3 +1,19 @@
 .welcome {
   color: white;
 }
+
+.welcomeContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+.logoutButton {
+  margin: 10px;
+  background-color: #c48900;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  cursor: pointer;
+  text-align: center;
+  font-size: larger;
+}

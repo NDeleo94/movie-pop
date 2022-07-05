@@ -1,4 +1,4 @@
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, googleAuthProvider } from "../firebase/config";
 import { types } from "../types/types";
 
@@ -17,5 +17,15 @@ export const login = (uid, displayName) => {
       uid,
       displayName,
     },
+  };
+};
+
+export const logout = () => {
+  return async (dispatch) => {
+    await signOut(auth);
+
+    dispatch({
+      type: types.logout,
+    });
   };
 };
