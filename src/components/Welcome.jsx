@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../actions/auth";
+import { limpiar } from "../actions/fav";
 import styles from "../components styles/Welcome.module.css";
 
 const Welcome = ({ user }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
+    dispatch(limpiar())
     dispatch(logout());
   };
 

@@ -30,7 +30,7 @@
 p {
   margin: 20px;
   text-align: left;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: white;
 }
 
@@ -41,6 +41,18 @@ p {
   }
 }
 
+.ratingSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.favoriteSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .favoriteButton {
   text-align: center;
   padding: 10px 16px;
@@ -48,4 +60,8 @@ p {
   background: none;
   cursor: pointer;
   color: red;
+}
+
+.hidden{
+  display: none;
 }

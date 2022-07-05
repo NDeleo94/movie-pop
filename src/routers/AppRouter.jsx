@@ -12,6 +12,8 @@ import { login } from "../actions/auth";
 import { auth } from "../firebase/config";
 import { LogginContext } from "../context/LogginContext";
 import PrivateRouter from "./PrivateRouter";
+import { leerRegistros } from "../actions/fav";
+import { loadData } from "../utils/loadData";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -22,10 +24,11 @@ const AppRouter = () => {
       if (user) {
         dispatch(login(user.uid, user.displayName));
         setIsLogged(true);
-        // console.log("Loggeado");
+
+        const favData = await loadData(user.uid);
+        dispatch(leerRegistros(favData));
       } else {
         setIsLogged(false);
-        // console.log("Desloggeado");
       }
     });
   });
