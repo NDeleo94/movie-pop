@@ -10,16 +10,9 @@ const Login = () => {
     setToggleReg(!toggleReg)
   };
 
-  const form = () => {
-   if(toggleReg)
-   return <LoginForm/>
-   else
-   return <RegisterForm/>
-  }
-
   return (
     <>
-      {form()}
+      {toggleReg ? <LoginForm/> : <RegisterForm/>}
       <hr />
       <div className={styles.loginContainer}>
         <button className={styles.toggleButton} onClick={handleClick}>
