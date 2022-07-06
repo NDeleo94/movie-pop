@@ -22,7 +22,12 @@ const Search = () => {
           placeholder="Buscar"
           value={search ?? ""}
           onChange={(e) => {
-            const value = e.target.value;
+            let value;
+            if (e.nativeEvent.data === " ") {
+              value = search + "%20";
+            } else {
+              value = e.target.value;
+            }
             navigate("/buscar/?search=" + value);
           }}
         />

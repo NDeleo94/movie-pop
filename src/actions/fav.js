@@ -16,10 +16,7 @@ export const crearRegistro = (pelicula) => {
       },
     };
 
-    const ref = await addDoc(collection(db, `${uid}/fav/favoritas`), datos);
-
-    console.log(ref);
-    console.log("add");
+    await addDoc(collection(db, `${uid}/fav/favoritas`), datos);
 
     const data = await loadData(uid);
 
