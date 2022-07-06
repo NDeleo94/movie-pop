@@ -3,7 +3,7 @@
   "name": "React App MoviePop!",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#c48900",
   "background_color": "#1e374e",
   "icons": [
     {
