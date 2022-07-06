@@ -52,7 +52,7 @@ const DetailPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://api.tvmaze.com/shows/" + idPelicula)
+      .get("https://api.tvmaze.com/shows/" + idPelicula)
       .then((peli) => {
         setPelicula(peli.data);
         initialToggle();

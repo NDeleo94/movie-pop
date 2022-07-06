@@ -12,7 +12,7 @@ const MoviesGrid = ({ search }) => {
   useEffect(() => {
     const searchURL = search ? search : "star wars";
     axios
-      .get("http://api.tvmaze.com/search/shows?q=" + searchURL)
+      .get("https://api.tvmaze.com/search/shows?q=" + searchURL)
       .then((pelis) => {
         setMovies(pelis.data);
         setIsLoading(false);
