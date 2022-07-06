@@ -1,8 +1,8 @@
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase/config";
 
 export const loadData = async (uid) => {
-  const first = query(collection(db, `${uid}/fav/favoritas`));
+  const first = query(collection(db, `${uid}/fav/favoritas`), orderBy("fecha"));
   const response = await getDocs(first);
 
   const data = [];
